@@ -1,0 +1,41 @@
+<div th:fragment="resultContent">
+  <div th:if="${result.error}" class="alert alert-danger alert-dismissible fade show">
+    <strong><i class="bi bi-exclamation-triangle-fill"></i> Formatting Error:</strong>
+    <span th:text="${result.error}"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+
+  <div class="row g-4 mb-4">
+    <div class="col-lg-6">
+      <div class="card h-100 border-warning">
+        <div class="card-header bg-warning text-white">
+          <i class="bi bi-file-earmark-code me-2"></i>Original Code
+        </div>
+        <div class="card-body p-0">
+                        <pre class="m-0 p-3 bg-dark text-white"
+                             style="overflow: auto; max-height: 500px;"
+                             th:text="${result.originalCode}"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="card h-100 border-success">
+        <div class="card-header bg-success text-white">
+          <i class="bi bi-check-circle me-2"></i>Formatted Code
+        </div>
+        <div class="card-body p-0">
+                        <pre class="m-0 p-3 bg-dark text-success"
+                             style="overflow: auto; max-height: 500px;"
+                             th:text="${result.formattedCode}"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center">
+    <a th:href="@{/codeFormater/format}" class="btn btn-primary px-4">
+      <i class="bi bi-arrow-left me-2"></i>Format Another
+    </a>
+  </div>
+</div>

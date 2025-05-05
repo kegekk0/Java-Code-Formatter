@@ -1,0 +1,41 @@
+<div th:fragment="codeInput(form)">
+    <div class="mb-3">
+        <label class="form-label">Java Code</label>
+        <label>
+            <textarea class="form-control font-monospace"
+            th:field="*{code}"
+            rows="15"
+            placeholder="Paste your Java code here..."> </textarea>
+        </label>
+    </div>
+
+    <div class="card mb-3">
+        <div class="card-header">Save Options</div>
+        <div class="card-body">
+            <div class="mb-3">
+                <label class="form-label">Custom ID</label>
+                <input type="text" class="form-control"
+                       th:field="*{customId}"
+                       placeholder="Leave blank for no saving">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="form-label">Storage Duration</label>
+                    <input type="number" class="form-control"
+                           th:field="*{storageDuration}"
+                           min="10" max="7776000">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Time Unit</label>
+                    <select class="form-select" th:field="*{durationUnit}">
+                        <option value="seconds">Seconds</option>
+                        <option value="minutes">Minutes</option>
+                        <option value="hours">Hours</option>
+                        <option value="days">Days</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

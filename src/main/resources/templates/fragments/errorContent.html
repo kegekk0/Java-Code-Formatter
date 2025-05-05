@@ -1,0 +1,20 @@
+<div th:fragment="errorContent">
+    <div class="card border-danger shadow">
+        <div class="card-header bg-danger text-white">
+            <h2 class="mb-0">
+                <i class="bi bi-exclamation-octagon-fill me-2"></i>Error
+            </h2>
+        </div>
+        <div class="card-body">
+            <div class="alert alert-danger">
+                <h4 class="alert-heading">
+                    <i class="bi bi-bug-fill me-2"></i>Operation Failed
+                </h4>
+                <p class="mb-0" th:text="${error}"></p>
+            </div>
+            <a th:href="@{/codeFormater/format}" class="btn btn-outline-primary">
+                <i class="bi bi-house-door me-2"></i>Return Home
+            </a>
+        </div>
+    </div>
+</div>

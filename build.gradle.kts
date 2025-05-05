@@ -25,6 +25,11 @@ dependencies {
     implementation ("com.google.googlejavaformat:google-java-format:1.17.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+
+    implementation("org.webjars:webjars-locator-core:0.52")
+    implementation("org.webjars:bootstrap:5.3.2")
+    implementation("org.webjars.npm:bootstrap-icons:1.11.1")
+
     developmentOnly ("org.springframework.boot:spring-boot-devtools")
     testImplementation ("org.springframework.boot:spring-boot-starter-test")
 }
