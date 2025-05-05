@@ -1,0 +1,71 @@
+<div th:fragment="indexContent">
+    <div class="card shadow-sm mb-4">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0">
+                <i class="bi bi-code-square me-2"></i>Java Code Formatter
+            </h2>
+        </div>
+        <div class="card-body">
+            <form method="post" th:action="@{/codeFormater/format}" th:object="${codeForm}">
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Java Code</label>
+                    <textarea
+                            class="form-control font-monospace"
+                            th:field="*{code}"
+                            rows="15"
+                            placeholder="Paste your Java code here..."
+                            style="font-size: 0.9rem;"
+                    ></textarea>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-secondary text-white">
+                        <i class="bi bi-save me-1"></i>Save Options
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label class="form-label">Custom ID (optional)</label>
+                            <input
+                                    type="text"
+                                    class="form-control"
+                                    th:field="*{customId}"
+                                    placeholder="my-snippet-1"
+                            >
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Storage Duration</label>
+                                <input
+                                        type="number"
+                                        class="form-control"
+                                        th:field="*{storageDuration}"
+                                        min="10"
+                                        max="90"
+                                >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Time Unit</label>
+                                <select class="form-select" th:field="*{durationUnit}">
+                                    <option value="seconds">Seconds</option>
+                                    <option value="minutes">Minutes</option>
+                                    <option value="hours">Hours</option>
+                                    <option value="days">Days</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-success px-4">
+                        <i class="bi bi-magic me-2"></i>Format Code
+                    </button>
+                    <a th:href="@{/codeFormater/format/saved/list}" class="btn btn-outline-primary">
+                        <i class="bi bi-archive me-2"></i>View Saved
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
