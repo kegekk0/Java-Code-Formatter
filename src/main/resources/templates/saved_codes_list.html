@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Saved Code Snippets</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Saved Code Snippets</h1>
+
+  <a href="/format" class="back-button">Back to Formatter</a>
+
+  <div th:if="${savedCodes.empty}" class="empty-message">
+    No saved code snippets found.
+  </div>
+
+  <div class="saved-codes-list">
+    <div th:each="savedCode : ${savedCodes}" class="saved-code-item">
+      <h3>ID: <span th:text="${savedCode.id}"></span></h3>
+      <p>Expires: <span th:text="${#temporals.format(savedCode.expirationTime, 'yyyy-MM-dd HH:mm:ss')}"></span></p>
+      <pre class="code-preview" th:text="${savedCode.code}"></pre>
+      <a th:href="@{/format/saved/{id}(id=${savedCode.id})}" class="view-button">View Full Code</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

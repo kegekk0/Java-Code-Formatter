@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Java Code Formatter</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Java Code Formatter</h1>
+    <p>Paste your Java code below to format it according to Google Java Style Guide</p>
+
+    <form method="post">
+        <textarea name="code" th:field="*{codeForm.code}"
+                  placeholder="Paste your Java code here..."
+                  class="code-input"></textarea>
+
+        <div class="form-group">
+            <label for="customId">Save as (optional ID):</label>
+            <input type="text" id="customId" name="customId" th:field="*{codeForm.customId}">
+        </div>
+
+        <div class="form-group">
+            <label for="storageDuration">Store for:</label>
+            <input type="number" id="storageDuration" name="storageDuration"
+                   th:field="*{codeForm.storageDuration}" min="10" max="7776000">
+            <select name="durationUnit" th:field="*{codeForm.durationUnit}">
+                <option value="seconds">Seconds</option>
+                <option value="minutes">Minutes</option>
+                <option value="hours">Hours</option>
+                <option value="days">Days</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="format-button">Format Code</button>
+            <a href="/format/saved" class="view-saved-button">View Saved Codes</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

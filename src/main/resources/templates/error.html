@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Error Occurred</h1>
+    <div class="error">
+        <p th:text="${error}">Error message</p>
+    </div>
+    <a href="/format" class="back-button">Back to Formatter</a>
+</div>
+</body>
+</html>

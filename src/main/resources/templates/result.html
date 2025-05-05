@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Formatted Code Result</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="container">
+  <h1>Formatted Code Result</h1>
+
+  <div th:if="${result.error}" class="error">
+    <h3>Error:</h3>
+    <pre th:text="${result.error}"></pre>
+  </div>
+
+  <div class="code-container">
+    <h3>Original Code:</h3>
+    <pre th:text="${result.originalCode}"></pre>
+  </div>
+
+  <div class="code-container">
+    <h3>Formatted Code:</h3>
+    <pre th:text="${result.formattedCode}"></pre>
+  </div>
+
+  <a href="/format" class="back-button">Format Another Code</a>
+</div>
+</body>
+</html>
